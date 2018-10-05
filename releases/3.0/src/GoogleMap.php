@@ -1298,7 +1298,7 @@ class GoogleMapAPI {
      * @return int|bool
      */
     function addMarkerByAddress($address,$title = '',$html = '',$tooltip = '', $icon_filename = '', $icon_shadow_filename='') {
-        if(($_geocode = $this->getGeocode($address)) === false)
+        if(!($_geocode = $this->getGeocode($address)))
             return false;
         return $this->addMarkerByCoords($_geocode['lon'],$_geocode['lat'],$title,$html,$tooltip, $icon_filename, $icon_shadow_filename);
     }
